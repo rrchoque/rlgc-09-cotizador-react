@@ -7,11 +7,13 @@ const Resultado = () => {
     const { marca, plan, year } = datos
     const yearRef = useRef(year)
 
+    // utilizando useCallback
     const [nombreMarca] = useCallback( 
         MARCAS.filter(m => m.id === Number(marca) ), 
         [ resultado]
     )
-    const [nombrePlan] = useCallback( 
+    // utilizando useMemo
+    const [nombrePlan] = useMemo( () =>
         PLANES.filter(p => p.id === Number(plan) ), 
         [resultado]
     )
